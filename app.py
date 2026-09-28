@@ -33,6 +33,10 @@ st.markdown("""
         padding: 1rem;
         box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
+    div[data-testid="stMetric"] label,
+    div[data-testid="stMetric"] div {
+        color: #1b2a38 !important;
+    }
     .status-badge {
         padding: 3px 10px;
         border-radius: 12px;
