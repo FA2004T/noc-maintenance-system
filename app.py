@@ -10,7 +10,9 @@ st.set_page_config(
 )
 
 # ---------------- Custom styling ----------------
+
 st.markdown("""
+            
 <style>
     .main-header {
         background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
@@ -55,9 +57,11 @@ st.markdown("""
         color: white !important;
     }
 </style>
+
 """, unsafe_allow_html=True)
 
 # ---------------- Database setup ----------------
+
 conn = sqlite3.connect("noc_maintenance.db", check_same_thread=False)
 cursor = conn.cursor()
 
@@ -75,6 +79,7 @@ CREATE TABLE IF NOT EXISTS tickets (
     resolved_at TEXT
 )
 """)
+
 conn.commit()
 
 existing_cols = [row[1] for row in cursor.execute("PRAGMA table_info(tickets)")]
@@ -89,7 +94,9 @@ for col, col_type in new_columns.items():
         cursor.execute(f"ALTER TABLE tickets ADD COLUMN {col} {col_type}")
 conn.commit()
 
+
 # ---------------- Sidebar navigation ----------------
+
 st.sidebar.title("📡 NOC Maintenance")
 page = st.sidebar.radio(
     "Navigate",
